@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerPilot AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="nav">
+        <div class="brand">🚀 CareerPilot <span>AI</span></div>
+        <a href="#analyzer">Start Analysis</a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div>
+                <p class="badge">AI-POWERED CAREER GUIDANCE</p>
+                <h1>Find Your Career Path.<br><span>Build Your Future.</span></h1>
+                <p class="hero-text">
+                    Tell CareerPilot about your course, skills and interests.
+                    Get a personalized career direction, skill-gap analysis and roadmap.
+                </p>
+                <a class="btn" href="#analyzer">Start Your Career Analysis →</a>
+            </div>
+            <div class="hero-card">
+                <div class="orb">✦</div>
+                <h3>Personalized Roadmap</h3>
+                <p>Skills → Career → Skill Gap → Projects → Internship</p>
+            </div>
+        </section>
+
+        <section id="analyzer" class="section">
+            <div class="section-title">
+                <p class="badge">STEP 1</p>
+                <h2>Tell Us About You</h2>
+                <p>Enter simple details. No technical knowledge is required.</p>
+            </div>
+
+            <form id="analysisForm" class="card form-grid">
+                <label>
+                    Your Name
+                    <input id="name" required placeholder="e.g. Ankit">
+                </label>
+                <label>
+                    Course
+                    <select id="course">
+                        <option>BCA</option>
+                        <option>B.Tech CSE</option>
+                        <option>B.Tech IT</option>
+                        <option>B.Sc IT</option>
+                        <option>Other</option>
+                    </select>
+                </label>
+                <label class="full">
+                    Your Skills (comma separated)
+                    <input id="skills" placeholder="HTML, CSS, Java, Python">
+                </label>
+                <label class="full">
+                    Interests (comma separated)
+                    <input id="interests" placeholder="AI, web development, data">
+                </label>
+                <label class="full">
+                    Career Goal
+                    <input id="goal" placeholder="e.g. Software Developer">
+                </label>
+                <button class="btn full" type="submit">Analyze My Career ✨</button>
+            </form>
+        </section>
+
+        <section id="resultSection" class="section hidden">
+            <div class="section-title">
+                <p class="badge">STEP 2</p>
+                <h2>Your Career Analysis</h2>
+            </div>
+
+            <div class="result-grid">
+                <div class="card career-card">
+                    <p class="muted">RECOMMENDED CAREER</p>
+                    <h2 id="career"></h2>
+                    <p id="message"></p>
+                    <div class="score-box">
+                        <strong id="score">0%</strong>
+                        <span>current skill match</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>⚠️ Skills to Improve</h3>
+                    <div id="missing" class="chips"></div>
+                </div>
+
+                <div class="card">
+                    <h3>🗺️ Your Roadmap</h3>
+                    <ol id="roadmap" class="roadmap"></ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <p class="badge">STEP 3</p>
+                <h2>Ask CareerPilot</h2>
+                <p>A simple AI-style career assistant for your demo.</p>
+            </div>
+
+            <div class="card chatbot">
+                <div id="chatMessages" class="chat-messages">
+                    <div class="bot">Hi! Ask me about careers, skills, roadmaps or internships.</div>
+                </div>
+                <div class="chat-input">
+                    <input id="chatInput" placeholder="e.g. What should I learn after Java?">
+                    <button class="btn" onclick="sendChat()">Send</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>CareerPilot AI • Hackathon Prototype</footer>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
